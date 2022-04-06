@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Index</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
+</head>
+<style type="text/css">
+    .calculator-wrapper {
+        text-align: left;
+        width: 700px;
+        display: inline-block;
+        margin-bottom: 20px;
+        margin-top: 20px;
+    }
+
+    .calculator-wrapper #combo-content,
+    #comparison {
+        padding: 15px;
+        background-color: #f2f2f2;
+        border: 1px solid #808080;
+    }
+
+    .calculator-wrapper #comparison {
+        margin-top: 10px;
+    }
+
+    .calculator-wrapper .banner h5 {
+        color: white;
+        text-align: center;
+        padding: 5px;
+    }
+
+    .calculator-wrapper input {
+        text-align: right;
+        height: 25px;
+        width: 180px;
+        border-radius: 0px;
+        border: 1px solid #000;
+    }
+
+    .calculator-wrapper label {
+        font-size: 14px;
+        vertical-align: middle;
+        color: black;
+    }
+
+    .calculator-wrapper .input-box {
+        margin-top: 15px;
+        margin-bottom: 15px;
+    }
+
+    .calculator-wrapper .banner {
+        background-color: #203764;
+    }
+
+    .calculator-wrapper .loan-content {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        margin-top: 15px;
+        border-top: 1px solid #7f7f7f;
+    }
+
+    .calculator-wrapper .total-finance {
+        border: 1px solid #bfbfbf;
+        width: 300px;
+        text-align: center;
+        font-weight: 500;
+    }
+
+    .calculator-wrapper .total-finance span {
+        color: #3a3838;
+        font-size: 14px;
+        text-align: center;
+    }
+
+    .calculator-wrapper .total-finance div {
+        display: inline-flex;
+        justify-content: space-between;
+        border-top: 1px solid #7f7f7f;
+        width: 270px;
+    }
+
+    .calculator-wrapper .structure-content {
+        display: inline-block;
+        margin-top: 15px;
+        position: relative;
+    }
+
+    .calculator-wrapper .structure-content:before {
+        content: "";
+        width: 1px;
+        height: 90%;
+        position: absolute;
+        left: -7%;
+        top: 8%;
+        background-color: #7f7f7f;
+    }
+
+    .calculator-wrapper .table-content tr:nth-child(even) {
+        background-color: #dddddd;
+    }
+
+    .calculator-wrapper .table-content td {
+        padding-left: 20px;
+        padding-right: 20px;
+        font-size: 15px;
+    }
+
+    .calculator-wrapper .table-content th {
+        padding-left: 10px;
+        padding-right: 10px;
+        font-size: 14px;
+    }
+</style>
+
+<body>
+    <div class="container">
+        <div class="calculator-wrapper">
+            <div id="combo-content">
+                <div class="banner">
+                    <h5>COMBO LOAN CALCULATOR (Input)</h5>
+                </div>
+                <div class="input-content">
+                    <div class="input-box">
+                        <input type="text" name="" value="850 000" id="js-value">
+                        <label>Sale Price (or Value if Refi)</label>
+                    </div>
+                    <div class="input-box">
+                        <input type="text" name="" value="85 000" id="js-equity">
+                        <label>Down Payment /Equity</label>
+                    </div>
+                    <div class="input-box">
+                        <input type="text" name="" value="720" id="js-fico">
+                        <label>FICO Score</label>
+                    </div>
+                    <div class="total-finance">
+                        <span style="display: block;">Total Financing</span>
+                        <div>
+                            <span id="js-total-financing">765 000</span>
+                            <span id="js-financing-percent">90,00%</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="loan-content">
+                    <div style="display: inline-block; margin-top: 15px;" c>
+                        <span
+                            style="color: #000; text-decoration: underline; margin-left: 10px; font-weight: 700;">Single
+                            Loan</span>
+                        <div class="input-box">
+                            <input type="text" name="" value="4,750%" id="js-single-interest">
+                            <label>1st Mtg Interest Rate</label>
+                        </div>
+                        <div class="input-box">
+                            <input type="text" name="" value="30" id="js-single-term">
+                            <label>Mortage Term (yrs)</label>
+                        </div>
+                    </div>
+                    <div class="structure-content">
+                        <span
+                            style="color: #203864; text-decoration: underline; margin-left: 10px; font-weight: 700;">Combo
+                            Loan Structure</span>
+                        <div class="input-box">
+                            <input type="text" name="" value="4,750%" id="js-combo-interest">
+                            <label>1st Mtg Interest Rate</label>
+                        </div>
+                        <div class="input-box">
+                            <input type="text" name="" value="3,990%" id="js-heloc-io-rate">
+                            <label>HELOC I/O Rate</label>
+                        </div>
+                        <div class="input-box">
+                            <input type="text" name="" value="70,00%" id="js-1mtg-ltv">
+                            <label>1st Mtg (LTV %)</label>
+                        </div>
+                        <div class="input-box">
+                            <input type="text" name="" disabled="" value="20,00%" id="js-heloc-ltv">
+                            <label style="color: #7f7f7f;">HELOC (LTV %)</label>
+                        </div>
+                        <div class="input-box">
+                            <input type="text" name="" disabled="" value="10,00%" id="js-equity-percent">
+                            <label style="color: #7f7f7f;">Equity (%)</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="comparison">
+                <div class="banner">
+                    <h5 style="margin-bottom: 0px;">SINGLE vs. COMBO COMPARISON</h5>
+                </div>
+                <div class="table-content">
+                    <table style="width: 100%;">
+                        <thead>
+                            <th style="padding: 10px;">SALE PRICE / VALUE <span id="js-loan-value">$850 000</span></th>
+                            <th style="padding: 10px; border-left: 1px solid #808080;">FINANCING</th>
+                            <th style="padding: 10px;" id="js-finance-total">$765 000</th>
+                        </thead>
+                        <thead>
+                            <th style="background-color: #fff;">LOAN STRUCTURE</th>
+                            <th style="background-color: #fff; border-left: 1px solid #808080;">SINGLE LOAN</th>
+                            <th
+                                style="background-color: #fff; border: 2px solid #305496; border-width: 2px 2px 0 2px; color: #305496;">
+                                COMBO LOAN</th>
+                        </thead>
+                        <tbody style="padding: 10px;">
+                            <tr>
+                                <td>1st Mortgage LTV</td>
+                                <td style="border-left: 1px solid #808080;" id="js-single-1mtg-ltv">90,00%</td>
+                                <td style="border: 2px solid #305496; border-width: 0px 2px; color: #305496;" id="js-combo-1mtg-ltv">
+                                    70,00%
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>HELOC LTV</td>
+                                <td style="border-left: 1px solid #808080;"></td>
+                                <td style="border: 2px solid #305496; border-width: 0px 2px; color: #305496;" id="js-combo-heloc-ltv">
+                                    20,00%
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Down/Equity</td>
+                                <td style="border-left: 1px solid #808080;" id="js-single-equity">10.00%</td>
+                                <td style="border: 2px solid #305496; border-width: 0px 2px 2px 2px; color: #305496;" id="js-combo-equity">
+                                    10,00%</td>
+                            </tr>
+                            <tr>
+                                <td>1st Mtg Interest Rate</td>
+                                <td style="border-left: 1px solid #808080; border-right: 1px solid #808080;" id="js-single-1mtg-interest">
+                                    4,750%
+                                </td>
+                                <td id="js-combo-1mtg-interest">
+                                    4,750%
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>HELOC I/O Interest Rate</td>
+                                <td style="border-left: 1px solid #808080; border-right: 1px solid #808080;"></td>
+                                <td id="js-combo-heloc-io">3,99%</td>
+                            </tr>
+                            <tr>
+                                <td>TERM (Years)</td>
+                                <td style="border-left: 1px solid #808080; border-right: 1px solid #808080;" id="js-single-terms">
+                                    30
+                                </td>
+                                <td id="js-combo-terms">30</td>
+                            </tr>
+                            <tr>
+                                <td>MI Annual BPMI</td>
+                                <td style="border-left: 1px solid #808080; border-right: 1px solid #808080;" id="js-single-bpmi">
+                                    0,31%
+                                </td>
+                                <td id="js-combo-bpmi">
+                                    0
+                                </td>
+                            </tr>
+                            <thead style="border-top: 1px solid #808080; background-color: #fff;">
+                                <th>LOAN DETAILS</th>
+                                <th style="border-left: 1px solid #808080; border-right: 1px solid #808080;"></th>
+                                <th></th>
+                            </thead>
+                            <tr>
+                                <td>Contract Sale Price</td>
+                                <td
+                                    style="border-left: 1px solid #808080; border-right: 1px solid #808080; text-align: right;" id="js-single-value">
+                                    850 000 </td>
+                                <td style="text-align: right;" id="js-combo-value">850 000</td>
+                            </tr>
+                            <tr>
+                                <td>1st Mortgage Amount</td>
+                                <td id="js-single-1mtg"
+                                    style="border-left: 1px solid #808080; border-right: 1px solid #808080; text-align: right;">
+                                    765 000</td>
+                                <td style="text-align: right;" id="js-combo-1mtg">595 000</td>
+                            </tr>
+                            <tr>
+                                <td>HELOC Line</td>
+                                <td
+                                    style="border-left: 1px solid #808080; border-right: 1px solid #808080; text-align: right;">
+                                    -</td>
+                                <td style="text-align: right;" id="js-combo-heloc-line">170 000</td>
+                            </tr>
+                            <tr>
+                                <td>Down Payment / Equity</td>
+                                <td id="js-single-equity2"
+                                    style="border-left: 1px solid #808080; border-top: 1px solid #808080; text-align: right;">
+                                    85 000</td>
+                                <td id="js-combo-equity2"
+                                    style="border-left: 1px solid #808080; border-top: 1px solid #808080; text-align: right;">
+                                    85 000</td>
+                            </tr>
+                            <thead style="border-top: 1px solid #808080;">
+                                <th>MONTHLY PAYMENT</th>
+                                <th style="border-left: 1px solid #808080; border-right: 1px solid #808080;"></th>
+                                <th></th>
+                            </thead>
+                            <tr>
+                                <td>1st Mortgage</td>
+                                <td id="js-single-1mtg-payment"
+                                    style="border-left: 1px solid #808080; border-right: 1px solid #808080; text-align: right;">
+                                    3 991</td>
+                                <td style="text-align: right;" id="js-combo-1mtg-payment">3 104</td>
+                            </tr>
+                            <tr>
+                                <td>HELOC Line</td>
+                                <td
+                                    style="border-left: 1px solid #808080; border-right: 1px solid #808080; text-align: right;">
+                                    -</td>
+                                <td style="text-align: right;" id="js-combo-heloc-2nd">565</td>
+                            </tr>
+                            <tr>
+                                <td>Mortgage Insurance</td>
+                                <td id="js-single-mtg-insurance"
+                                    style="border-left: 1px solid #808080; border-right: 1px solid #808080; text-align: right;">
+                                    198</td>
+                                <td style="text-align: right;">-</td>
+                            </tr>
+                            <thead>
+                                <th>Total</th>
+                                <th id="js-single-total"
+                                    style="border-left: 1px solid #808080; border-top: 1px solid #808080; text-align: right;">
+                                    4 188</th>
+                                <th id="js-combo-total"
+                                    style="border-left: 1px solid #808080; border-top: 1px solid #808080; text-align: right;">
+                                    3 669</th>
+                            </thead>
+                            <thead style="border-top: 1px solid #808080;">
+                                <th colspan="2">COMBO LOAN MONTHLY PAYMENT SAVINGS</th>
+                                <th style="background-color: #c6efce; color: #006100; text-align: right;" id="js-loan-saving">519</th>
+                            </thead>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="./src/tools.js"></script>
+    <script src="./src/logic.js"></script>
+    <script src="./src/index.js"></script>
+</body>
+
+</html>
